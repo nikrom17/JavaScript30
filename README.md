@@ -11,5 +11,5 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 | --- | --- | --- |
 | [Drum Kit](https://github.com/nikrom17/JavaScript30/tree/master/Drum%20Kit) | A web-based drum set. Play the drums by pressing the corresponding keys.  | key events, playing audio, listening for transition ends
 |[Clock](https://github.com/nikrom17/JavaScript30/tree/master/Clock) | Clock with hour, minute and second hands  | basic CSS styling and JS logic |
-
+[CSS Variables](https://github.com/nikrom17/JavaScript30/tree/master/CSS%20Variables) | Dynamically change the padding, blur and background color of an image  | Use CSS variables and JS to dynamically change styles |
 
