@@ -47,6 +47,8 @@
       flex: 1; /*increases the width of the all the children so they fill the maximum view width on the screen */
       justify-content: center;
       align-items: center;
+      display: flex;
+      flex-direction: column;
     }
 
     .panel1 { background-image:url(https://source.unsplash.com/gYl-UtwNg_I/1500x1500); }
@@ -60,8 +62,17 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
-      border: 1px solid red;
+      /* border: 1px solid red; use border on children to see where they are on the screen. Good for debugging */
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
+    .panel > *:first-child { transform: translateY(-100%); }
+    .panel.open-active > *:first-child { transform: translateY(0); }
+    .panel > *:last-child { transform: translateY(100%); }
+    .panel.open-active > *:last-child { transform: translateY(0); }
 
     .panel p {
       text-transform: uppercase;
@@ -76,6 +87,7 @@
 
     .panel.open {
       font-size: 40px;
+      flex: 5; /* will take up 5x the about of room compared to the other flexbox children */
     }
 
   </style>
@@ -110,6 +122,22 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel');
+
+    function toggleOpen() {
+      this.classList.toggle('open');
+    }
+
+    function toggleActive(e) {
+      //use includes 'flex' in logic to be multi-browser compatible
+      if (e.propertyName.includes( 'flex' )) {
+        this.classList.toggle('open-active');
+      }
+      this.classList.toggle('active');
+    }
+
+    panels.forEach( panel => panel.addEventListener('click', toggleOpen ));
+    panels.forEach( panel => panel.addEventListener('transitionend', toggleActive ));
 
   </script>
 
