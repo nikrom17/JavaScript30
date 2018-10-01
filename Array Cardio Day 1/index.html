@@ -71,19 +71,62 @@
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    const totalYears = inventors.reduce( (total, inventor) => {
+		return total + (inventor.passed - inventor.year);
+	}, 0);
+	console.log(totalYears);
 
     // 5. Sort the inventors by years lived
-
+	const oldest = inventors.sort(function(a, b) {
+		const lastGuy = a.passed - a.year;
+		const nextGuy = b.passed - b.year;
+		return (lastGuy > nextGuy ? -1 : 1);
+	});
+	
+	console.table(oldest);
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+	try {
+		//get the wrapping div class that has the list of links of boulevards
+		const category = document.querySelector('.mw-category');
 
+		//pulls out just the links from the DOM elements captured in our variable 'category'
+		//use spread operator to convert node list into an array
+		// alternative: const links = Array.from(category.querySelectorAll('a'));
+		const links = [...category.querySelectorAll('a')];
+
+		//returns a node list of the text content for each link DOM element
+		const de = links
+					.map(link => link.textContent)
+					.filter(streetName.includes('de'));
+	} catch {
+		console.log('run code in browser!');
+	}
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+	const alpha = people.sort( (lastOne, nextOne) => {
+		//split array of strings
+		const [ aLast, aFirst] = lastOne.split(', ');
+		const [ bLast, bFirst] = nextOne.split(', ');
+		return aLast > bLast ? 1 : -1;
+	});
+	console.log(alpha);
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+	const transportation = data.reduce( (obj, item) => {
+		//checks to see if object item has been created. If not, it initializes it.
+		if (!obj[item]) {
+			obj[item] = 0;
+		}
+		//increment instance count.
+		obj[item]++;
+		return obj;
+	// '{}' creats a blank object for our varuable 'obj'
+	}, {} );
+	console.log(transportation);
 
   </script>
 </body>
