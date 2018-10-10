@@ -14,3 +14,4 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 [CSS Variables](https://github.com/nikrom17/JavaScript30/tree/master/CSS%20Variables) | Dynamically change the padding, blur and background color of an image  | use CSS variables and JS to dynamically change styles |
 [Array Cardio Day 1](https://github.com/nikrom17/JavaScript30/tree/master/Array%20Cardio%20Day%201) | Various exercises practicing using array methods | methods used: filter(), map(), sort(), reduce() |
 [Flex Panel Gallery](https://github.com/nikrom17/JavaScript30/tree/master/Flex%20Panel%20Gallery) | Gallery of images created using flexbox | flexbox |
+[Type Ahead](https://github.com/nikrom17/JavaScript30/tree/master/Type%20Ahead) | Search for matching cities or states as you type and  dynamically display results | Ajax, promises |
